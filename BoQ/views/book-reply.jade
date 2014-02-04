@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  span(style="display:none", id="bookId")=bookId
+  div(class="container", ng-controller="BooksController", data-ng-init="init()")
+    div(class="panel panel-primary")
+      div(class="panel-heading")=__("BoQ.book.reply.title", "{{book.title}}")
+      div(class="panel-body")
+          form(class="form-book", role="form", ng-submit='saveBookReply()')
+              div(ng-repeat="reply in pagedItems[currentPage]")
+                label(for="reply{{$index+1}}") {{reply.question.description}}
+                input(type="text", class="form-control reply", id="reply{{$index+1}}" name="reply", placeholder=__('BoQ.label.reply.description'), ng-model="reply.description", required)
+                div(ng-repeat="reply1 in reply.question.replies", class="other-replies")
+                    span(class="label label-default") {{reply1.description}} ({{reply1.user}})
+                ul(class="pagination")
+                    li(ng-class="{disabled: currentPage == 0}")
+                        a(href ng-click="prevPage()") «
+                    li(ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()")
+                        a(href ng-bind="n + 1") 1
+                    li(ng-class="{disabled: currentPage == pagedItems.length - 1}")
+                        a(href ng-click="nextPage()") »
+              .btn-group
+                  button(type="submit", class="btn btn-default", ng-class="{disabled: currentPage < pagedItems.length - 1}")=__('BoQ.action.save')
+                  a(href="/", class="btn btn-default")=__('BoQ.action.back')
+      
+  script(src='/javascripts/controllers/BooksController.js', type='text/javascript')

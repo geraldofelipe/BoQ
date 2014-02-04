@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  div(class="container", ng-controller="BooksController")
+    div(class="panel panel-primary")
+      div(class="panel-heading")=__('BoQ.book.title')
+      div(class="panel-body")
+          form(class="form-book", role="form", ng-submit='saveBook()')
+              .input-group
+                input(type="text", class="form-control", name="title", placeholder=__('BoQ.label.book.title'), ng-model="book.title" required autofocus)
+                span(class="input-group-btn")
+                    button(type="button", id="addQuestionButton", class="btn btn-default", ng-click="addQuestion()", tabIndex="1000")
+                        span(class="glyphicon glyphicon-plus")
+              div(ng-repeat="question in book.questions")
+                .input-group
+                    input(type="text", class="form-control question", index="{{$index+1}}", name="question", placeholder=__('BoQ.label.question.description') + " {{$index + 1}}", ng-model="question.description", required)
+                    span(class="input-group-btn")
+                        button(type="button", id="removeQuestionButton{{$index+1}}", class="btn btn-default", ng-click="removeQuestion(question)", tabIndex="1000")
+                            span(class="glyphicon glyphicon-minus")
+              .btn-group
+                  button(type="submit", class="btn btn-default")=__('BoQ.action.save')
+                  a(href="/book", class="btn btn-default")=__('BoQ.action.new')
+    div(class="panel panel-primary")
+      div(class="panel-heading")=__('BoQ.book.list')
+      div(class="panel-body")
+          table(class="table table-striped table-bordered table-hover")
+            tr
+              th(style="width: 95%")=__('BoQ.book.title')
+              th=__('BoQ.book.actions')
+            tr(ng-repeat='book in books | orderBy:predicate:reverse')
+              td 
+                a(href="" ng-click="findBook(book._id)") {{book.title}}
+              td(align="center")
+                button(class="btn btn-default btn-xs confirmation", ng-click="removeBook(book.id)")
+                    span(class="glyphicon glyphicon-minus")
+      
+  script(src='/javascripts/controllers/BooksController.js', type='text/javascript')

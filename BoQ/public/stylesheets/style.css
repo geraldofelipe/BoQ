@@ -1,0 +1,105 @@
+body {
+	background: #fff;
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+
+div.logo {
+	background: url("../images/logo-126x50.png") no-repeat #fff;
+	width: 126px;
+	height: 50px;
+	border: 0;
+}
+
+.form-signin {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,.form-signin .checkbox {
+	margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+	font-weight: normal;
+}
+
+.form-signin .form-control {
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+	z-index: 2;
+}
+
+.form-signin input[type="text"] {
+	margin-bottom: -1px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+input.middle {
+	border-radius: 0;
+}
+
+.form-signin input[type="password"] {
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+input.search {
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+}
+
+button.search {
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+}
+
+.modal {
+	display: block;
+}
+
+/* Custom dialog/modal headers */
+.dialog-header-error {
+	background-color: #d2322d;
+}
+
+.dialog-header-wait {
+	background-color: #428bca;
+}
+
+.dialog-header-notify {
+	background-color: #eeeeee;
+}
+
+.dialog-header-confirm {
+	background-color: #333333;
+}
+
+.dialog-header-error span,.dialog-header-error h4,.dialog-header-wait span,.dialog-header-wait h4,.dialog-header-confirm span,.dialog-header-confirm h4
+	{
+	color: #ffffff;
+}
+
+div.other-replies {
+	margin-top: 0.2em;
+	margin-left: 1em;
+	margin-bottom: 0.2em;
+}
+
+div.other-replies .other-reply {
+	padding-left: 0.2em;
+	padding-right: 0.2em;
+	background-color: aqua;
+	border-radius: 0.3em;
+}

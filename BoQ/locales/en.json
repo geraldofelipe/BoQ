@@ -1,0 +1,8 @@
+{
+	"mongodb.successfullyConnected": "Connected in MongoDB.",
+	"BoQ.title": "Book of Questions",
+	"BoQ.book.title": "Title",
+	"BoQ.question.description": "Question",
+	"action.save": "Save",
+	"action.cancel": "Cancel"
+}

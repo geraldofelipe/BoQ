@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  div(class="container", ng-controller="MainController")
+    div(class="panel panel-primary")
+      div(class="panel-heading")=__('BoQ.main.title')
+      div(class="panel-body")
+         table(class="table table-striped table-bordered table-hover")
+            tr
+              th=__('BoQ.book.title')
+            tr(ng-repeat='book in books | orderBy:predicate:reverse')
+              td 
+                a(href="/book/reply/{{book._id}}") {{book.title}}
+  script(src='/javascripts/controllers/MainController.js', type='text/javascript')
